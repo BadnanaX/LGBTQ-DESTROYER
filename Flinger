@@ -1,0 +1,76 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+
+local Window = Rayfield:CreateWindow({
+    Name = "LGBTQ+ Hangout KILLER 🔫",
+    LoadingTitle = "The Killer Gui",
+    LoadingSubtitle = "by badnanax",
+    ConfigurationSaving = {
+        Enabled = false,
+        FolderName = nil,
+        FileName = "gay killer Hub"
+    },
+    Discord = {
+        Enabled = true,
+        Invite = "NbjDSTyCvj",
+        RememberJoins = false
+    },
+    KeySystem = true,
+    KeySettings = {
+        Title = "It's in the discord server",
+        Subtitle = "Key System",
+        Note = "Join discord server and check the free scripts",
+        FileName = "gaykeysystem",
+        SaveKey = false,
+        GrabKeyFromSite = true,
+        Key = {"https://pastebin.com/raw/ULATYMKJ"}
+    }
+})
+
+local MainTab = Window:CreateTab("Fling Tab", nil) -- Title, Image
+local MainSection = MainTab:CreateSection("Main")
+
+Rayfield:Notify({
+    Title = "Have Fun",
+    Content = "Annoy the gay mfs.",
+    Duration = 5,
+    Image = nil,
+    Actions = {
+        Ignore = {
+            Name = "Thanks!",
+            Callback = function()
+                print("The user tapped Thanks!")
+            end
+        }
+    },
+})
+
+MainTab:CreateButton({
+    Name = "Fling People",
+    Callback = function()
+        local radio = workspace.Radio.R6.ServerStorage.Radio:FindFirstChild("RadioMesh")
+        local inf = math.huge
+        if radio then
+            game.Players.LocalPlayer.SimulationRadius = 10000
+            local radioAtt = Instance.new("Attachment", radio)
+            radio.CanCollide = false
+            radio.LocalTransparencyModifier = .5
+            local AP = Instance.new("AlignPosition", radio)
+            AP.MaxAxesForce = Vector3.new(inf, inf, inf)
+            AP.MaxForce = inf
+            AP.Responsiveness = 200
+            AP.ApplyAtCenterOfMass = true
+            AP.Attachment0 = radioAtt
+            AP.Attachment1 = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.RootAttachment
+            local oldPos = game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = radio.CFrame
+            task.wait(1)
+            game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = oldPos
+            while task.wait(.5) do
+                radio.AssemblyAngularVelocity = Vector3.new(99999, 99999, 99999)
+            end
+        else
+            warn("RadioMesh not found! Might be a retard threw it to void.")
+            game:GetService("StarterGui"):SetCore("DevConsoleVisible", true)
+        end
+    end,
+})
